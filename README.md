@@ -1,4 +1,4 @@
-# project_frontend
+# frontendsafety
 
 ## Project setup
 ```

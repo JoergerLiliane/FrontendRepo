@@ -30,12 +30,12 @@ export default {
 
   methods: {
     getAvatar () {
-      let user;
+      let user
       if (user.gender === 'MALE') {
-        // eslint-disable-next-line no-undef
+
         return require('../assets/male.png')
       } else if (user.gender === 'FEMALE') {
-        // eslint-disable-next-line no-undef
+
         return require('../assets/female.png')
       }
     }
@@ -44,17 +44,18 @@ export default {
 
 mounted ()
 {
-  const endpoint =  'http://localhost:8080/api/v1/guardian'
+  const endpoint =  'http://localhost:8080/api/v1/user'
   const requestOptions = {
     method: 'GET',
     redirect: 'follow'
   }
 
-  //axios.get
+
 
   fetch(endpoint, requestOptions)
     .then(response => response.json())
     .then(result => result.forEach(user => {
+      console.log(user)
       this.users.push(user)
     }))
     .catch(error => console.log('error', error))

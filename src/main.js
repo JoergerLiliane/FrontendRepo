@@ -1,29 +1,23 @@
-import {VueElement} from "vue";
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
-import Vuelidate from "vuelidate";
+//Daniel Wagner
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min'
-import './assets/css/styles.css'
-import './assets/css/bootstrap.css'
-import axios from "axios";
-
+//import 'bootstrap/dist/css/all.min.css'
+//import 'bootstrap-icons/font/bootstrap-icons.css'
+import { createApp } from 'vue'
+import router from './router'
 
 createApp(App).use(router).mount('#app')
-VueElement.prototype.$http = axios;
-VueElement.config.productionTip = false
-VueElement.use(Vuelidate);
-
-import { validationMixin } from 'vuelidate'
 
 
+//Agency
+import Vue from 'vue'
+import App from './App.vue'
+import './assets/css/styles.css'
+import './assets/css/bootstrap.css'
 
 
-import {Parser as Vue} from "acorn";
+Vue.config.productionTip = false
 
-// eslint-disable-next-line no-unused-vars
-var Component = Vue.extend({
-    mixins: [validationMixin],
-    validations: { }
-})
+new Vue({
+    render: h => h(App),
+}).$mount('#app')

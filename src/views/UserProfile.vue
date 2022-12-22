@@ -1,7 +1,7 @@
 <template>
   <h1>User</h1>
   <div class="container-fluid">
-    <user-card-list :users="this.users"></user-card-list>
+    <user-card-list :users="this.user"></user-card-list>
   </div>
   <UserSignupForm  @created="addUser"></UserSignupForm>
 </template>

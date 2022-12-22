@@ -35,6 +35,9 @@
             Please select a valid gender.
           </div>
         </div>
+
+        <div class="mb-3">
+        </div>
         <div v-if="this.serverValidationMessages">
           <ul>
             <li v-for="(message, index) in serverValidationMessages" :key="index" style="color: red">
@@ -76,7 +79,7 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           gender: this.gender,
-
+          phoneNumber: this.phoneNumbe
 
 
         })

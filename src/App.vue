@@ -4,24 +4,28 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Your Journey</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Your Journey with Safety</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
         </button>
+
+
+
+
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#profile">Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+              <a class="nav-link js-scroll-trigger" href="#guardian">Guardian</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#about">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#guardian">Guardian</a>
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
@@ -49,75 +53,115 @@
 
 
 
-    <!-- Profile -->
-    <section id="profile">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Profile</h2>
-            <h3 class="section-subheading text-muted">Datas About You.</h3>
-            <UserProfile></UserProfile>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Personal Datas</h4>
-            <p class="text-muted">Pipi Langstrumpf.</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Important Datas</h4>
-            <p class="text-muted">Important Datas  Your Guardian and Help Department Should To Know .</p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="service-heading">Settings</h4>
-            <p class="text-muted">Change Your Settings.</p>
-            <UserProfile></UserProfile>
+    <!-- Profile  -->
+    <section id="profile" class="vh-100" style="background-color: #f4f5f7;">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col col-lg-6 mb-4 mb-lg-0">
+            <div class="card mb-3" style="border-radius: .5rem;">
+              <div class="row g-0">
+                <div class="col-md-4 gradient-custom text-center text-white"
+                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                       alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                  <h5>Marie Horwitz</h5>
+                  <p>Web Designer</p>
+                  <i class="far fa-edit mb-5"></i>
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body p-4">
+                    <h6>Information</h6>
+                    <hr class="mt-0 mb-4">
+                    <div class="row pt-1">
+                      <div class="col-6 mb-3">
+                        <h6>Email</h6>
+                        <p class="text-muted">info@example.com</p>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <h6>Phone</h6>
+                        <p class="text-muted">123 456 789</p>
+                      </div>
+                    </div>
+                    <h6>Projects</h6>
+                    <hr class="mt-0 mb-4">
+                    <div class="row pt-1">
+                      <div class="col-6 mb-3">
+                        <h6>Recent</h6>
+                        <p class="text-muted">Lorem ipsum</p>
+                      </div>
+                      <div class="col-6 mb-3">
+                        <h6>Most Viewed</h6>
+                        <p class="text-muted">Dolor sit amet</p>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-start">
+                      <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                      <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                      <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                      <UserProfile></UserProfile>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Portfolio Grid -->
-    <Portfolio></Portfolio>
 
-    <!-- About -->
-    <section id="About">
+    <!-- Guardian -->
+    <section id="guardian">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">About This WebApp</h2>
+            <h2 class="section-heading text-uppercase">Current Guardians</h2>
             <h3 class="section-subheading text-muted">What You Shoud know</h3>
           </div>
         </div>
         <div class="row">
           <div class="col-lg-12">
             <ul class="timeline">
+
               <li>
                 <div class="timeline-image">
                   <img class="rounded-circle img-fluid" src="img/about/1.jpg" alt="">
                 </div>
+
                 <div class="timeline-panel">
                   <div class="timeline-heading">
                     <h4>Founded in 2022</h4>
                     <h4 class="subheading">Our Humble Beginnings</h4>
+                    <div class="d-flex pt-1">
+                      <button type="button" class="btn btn-outline-primary me-1 flex-grow-0">Chat</button>
+                      <button type="button" class="btn btn-primary flex-grow-0">Send A Request</button>
+                    </div>
                   </div>
                   <div class="timeline-body">
                     <p class="text-muted">When It Started!</p>
                   </div>
+
                 </div>
+
+                <div>
+                  <p class="small text-muted mb-1">On Your Priority Level</p>
+                  <p class="mb-0">1</p>
+                </div>
+                <div>
+                  <p class="small text-muted mb-1">Number of Users Protecting</p>
+                  <p class="mb-0">10</p>
+                </div>
+                <div class="px-3">
+                  <p class="small text-muted mb-1">Reliability</p>
+                  <p class="mb-0">High</p>
+                </div>
+
+
               </li>
+
+
+
+
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <img class="rounded-circle img-fluid" src="img/about/2.jpg" alt="">
@@ -126,12 +170,31 @@
                   <div class="timeline-heading">
                     <h4>March 2011</h4>
                     <h4 class="subheading">Goal Of Safety WebApp</h4>
+                    <div class="d-flex pt-1">
+                      <button type="button" class="btn btn-outline-primary me-1 flex-grow-0">Chat</button>
+                      <button type="button" class="btn btn-primary flex-grow-0">Send A Request</button>
+                    </div>
                   </div>
                   <div class="timeline-body">
                     <p class="text-muted">What Is The Goal...!</p>
                   </div>
                 </div>
+
+                <div>
+                  <p class="small text-muted mb-1">On Your Priority Level</p>
+                  <p class="mb-0">2</p>
+                </div>
+                <div>
+                  <p class="small text-muted mb-1">Number of Users Protecting</p>
+                  <p class="mb-0">6</p>
+                </div>
+                <div class="px-3">
+                  <p class="small text-muted mb-1">Reliability</p>
+                  <p class="mb-0">High</p>
+                </div>
               </li>
+
+
               <li>
                 <div class="timeline-image">
                   <img class="rounded-circle img-fluid" src="img/about/3.jpg" alt="">
@@ -140,12 +203,32 @@
                   <div class="timeline-heading">
                     <h4>December 2012</h4>
                     <h4 class="subheading">What You Can Do:....!</h4>
+                    <div class="d-flex pt-1">
+                      <button type="button" class="btn btn-outline-primary me-1 flex-grow-0">Chat</button>
+                      <button type="button" class="btn btn-primary flex-grow-0">Send A Request</button>
+                    </div>
                   </div>
                   <div class="timeline-body">
                     <p class="text-muted">Choose Your Guardian And Get Help When You Need It!</p>
                   </div>
                 </div>
+
+
+                <div>
+                  <p class="small text-muted mb-1">On Your Priority Level</p>
+                  <p class="mb-0">3</p>
+                </div>
+                <div>
+                  <p class="small text-muted mb-1">Number of Users Protecting</p>
+                  <p class="mb-0">4</p>
+                </div>
+                <div class="px-3">
+                  <p class="small text-muted mb-1">Reliability</p>
+                  <p class="mb-0">Medium</p>
+                </div>
               </li>
+
+
               <li class="timeline-inverted">
                 <div class="timeline-image">
                   <img class="rounded-circle img-fluid" src="img/about/4.jpg" alt="">
@@ -154,31 +237,56 @@
                   <div class="timeline-heading">
                     <h4>July 2014</h4>
                     <h4 class="subheading">Feedback</h4>
+                    <div class="d-flex pt-1">
+                      <button type="button" class="btn btn-outline-primary me-1 flex-grow-0">Chat</button>
+                      <button type="button" class="btn btn-primary flex-grow-0">Send A Request</button>
+                    </div>
                   </div>
                   <div class="timeline-body">
                     <p class="text-muted">Feedback!</p>
                   </div>
                 </div>
-              </li>
-              <li class="timeline-inverted">
-                <div class="timeline-image">
-                  <h4>Be Part
-                    <br>Of Our
-                    <br>Story And Join Us!</h4>
+
+
+                <div>
+                  <p class="small text-muted mb-1">On Your Priority Level</p>
+                  <p class="mb-0">4</p>
+                </div>
+                <div>
+                  <p class="small text-muted mb-1">Number of Users Protecting</p>
+                  <p class="mb-0">1</p>
+                </div>
+                <div class="px-3">
+                  <p class="small text-muted mb-1">Reliability</p>
+                  <p class="mb-0">Low</p>
                 </div>
               </li>
+
+
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <h4>Add
+                    <br>A
+                    <br>Guardian</h4>
+                </div>
+              </li>
+
+
             </ul>
           </div>
         </div>
       </div>
+
     </section>
 
-    <!-- Guardian -->
-    <section class="bg-light" id="guardian">
+
+
+    <!-- About -->
+    <section class="bg-light" id="about">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Those Are Your Guardians</h2>
+            <h2 class="section-heading text-uppercase">About Us</h2>
             <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
           </div>
         </div>
@@ -207,6 +315,7 @@
               </ul>
             </div>
           </div>
+
           <div class="col-sm-4">
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="img/guardian/2.jpg" alt="">
@@ -231,6 +340,8 @@
               </ul>
             </div>
           </div>
+
+
           <div class="col-sm-4">
             <div class="team-member">
               <img class="mx-auto rounded-circle" src="img/guardian/3.jpg" alt="">
@@ -256,6 +367,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
@@ -263,6 +375,13 @@
         </div>
       </div>
     </section>
+
+    <!-- Portfolio Grid -->
+    <Portfolio></Portfolio>
+
+
+
+
 
     <!-- Clients -->
     <section class="py-5">
@@ -588,7 +707,6 @@
 <script>
 
 import Portfolio from './components/PortFolio'
-
 import UserProfile from "@/views/UserProfile";
 
 export default {

@@ -34,39 +34,45 @@ export default {
     portfolioJSON: [
       {
         img: '/something/random/img.jpg',
+        caption: 'Login',
+        title: 'You can login here!'
+      },
+      {
+        img: '/something/random/img.jpg',
         caption: 'Explore',
-        title: 'Graphic Design'
+        title: 'Location'
       },
       {
         img: '/something/random/img.jpg',
         caption: 'Finish',
-        title: 'Identify'
+        title: 'Your Incidents'
       },
       {
         img: '/something/random/img.jpg',
-        caption: 'Lines',
-        title: 'Branding'
+        caption: 'PhoneNumber',
+        title: 'Number'
       },
       {
         img: '/something/random/img.jpg',
-        caption: 'Southwest',
-        title: 'Website Design'
+        caption: 'Help',
+        title: 'Help Department'
       },
       {
         img: '/something/random/img.jpg',
-        caption: 'Window',
-        title: 'Photography'
+        caption: 'MyProfile',
+        title: 'MyProfile'
       },
       {
         img: '/something/random/img.jpg',
-        caption: 'Coffee',
-        title: 'Drink a Lot!'
+        caption: 'Current Gardians',
+        title: 'Current Guardians'
       },
       {
         img: '/something/random/img.jpg',
-        caption: 'Pizza',
-        title: 'I Ate some Pizza!'
-      }
+        caption: 'Past Guardians',
+        title: 'Past Guardians'
+      },
+
     ]
   })
 }

@@ -69,7 +69,7 @@ export default {
     async createUser () {
       if (this.validate()) {
 
-        const endpoint = 'http://localhost:8080/api/v1/user'
+        const endpoint = 'http://localhost:8080/api/v1/xmas'
 
         const headers = new Headers()
         headers.append('Content-Type', 'application/json')
@@ -78,8 +78,6 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           gender: this.gender,
-
-
         })
 
         const requestOptions = {
@@ -90,7 +88,6 @@ export default {
         }
 
         const response = await fetch(endpoint, requestOptions)
-
         await this.handleResponse(response)
       }
     },

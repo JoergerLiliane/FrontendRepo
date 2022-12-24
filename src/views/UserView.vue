@@ -1,6 +1,7 @@
 <template>
+  <h1>Users</h1>
   <div class="container-fluid" >
-    <user-card-list :users="this.user"></user-card-list>
+    <user-card-list :users="this.users"></user-card-list>
     <UserSignupForm  @created="addUser"></UserSignupForm>
   </div>
 
@@ -24,13 +25,13 @@ export default {
   },
   data () {
     return {
-      user: []
+      users: []
     }
   },
   methods: {
     addUser (userLocation) {
       console.log(userLocation)
-      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + userLocation
+      const endpoint =  userLocation
       const requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -43,7 +44,8 @@ export default {
     }
   },
   mounted () {
-    const endpoint = 'http://localhost:8080//api/v1/user'
+    const endpoint = 'http://localhost:8080/api/v1/xmas'
+
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'

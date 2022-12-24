@@ -1,23 +1,24 @@
 <template>
-  <div>
+  <HomePage></HomePage>
+  <UserSignupForm ></UserSignupForm>
 
-    <h3>Installed CLI Plugins</h3>
 
-  </div>
+
 </template>
 
 <script>
 
-import App from "@/App";
+
+
+import HomePage from "@/components/HomePage";
+import UserSignupForm from "@/components/UserSignupForm";
 
 
 export default {
   name: 'HomeView',
   components: {
-    // eslint-disable-next-line vue/no-unused-components
-    App,
-
-
+    HomePage,
+    UserSignupForm
   }
 }
 

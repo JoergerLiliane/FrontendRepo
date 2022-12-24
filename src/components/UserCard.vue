@@ -4,7 +4,7 @@
     <div className="card-body">
       <h5 className="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
       <p className="card-text">
-        {{ user.firstName }} {{ user.lastName }}.
+        {{ user.firstName }} {{ user.lastName }}
       </p>
     </div>
   </div>

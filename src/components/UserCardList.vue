@@ -9,6 +9,7 @@
 <script>
 import UserCard from '@/components/UserCard'
 
+
 export default {
   name: 'UserCardList',
   components: {

@@ -1,9 +1,9 @@
 <template>
-  <h1>User</h1>
-  <div class="container-fluid">
+  <div class="container-fluid" >
     <user-card-list :users="this.user"></user-card-list>
+    <UserSignupForm  @created="addUser"></UserSignupForm>
   </div>
-  <UserSignupForm  @created="addUser"></UserSignupForm>
+
 </template>
 
 <script>
@@ -12,11 +12,14 @@ import UserCardList from "@/components/UserCardList";
 
 
 
+
+
 export default {
   name: 'UserProfile',
   components: {
+    UserCardList,
     UserSignupForm,
-    UserCardList
+
 
   },
   data () {
@@ -25,8 +28,9 @@ export default {
     }
   },
   methods: {
-    addUser (personLocation) {
-      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL = personLocation
+    addUser (userLocation) {
+      console.log(userLocation)
+      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + userLocation
       const requestOptions = {
         method: 'GET',
         redirect: 'follow'
@@ -39,7 +43,7 @@ export default {
     }
   },
   mounted () {
-    const endpoint = process.env.VUE_APP_BACKEND_BASE_URL = 'http://localhost:8080/api/v1/user'
+    const endpoint = 'http://localhost:8080//api/v1/user'
     const requestOptions = {
       method: 'GET',
       redirect: 'follow'

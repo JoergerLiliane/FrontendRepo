@@ -4,6 +4,10 @@ import AboutView from '@/views/AboutView.vue'
 import LocationView from "@/views/LocationView";
 import UserView from "@/views/UserView";
 import GuardianView from "@/views/GuardianView";
+import DeleteUser from "@/components/DeleteUser";
+import UserSettings from "@/components/UserSettings";
+import GuardianSettings from "@/components/GuardianSettings";
+
 
 
 
@@ -19,11 +23,7 @@ const routes = [
     component: AboutView
 
   },
-  {
-    path: '/login',
-    name: 'LoginView',
-    component: HomeView
-  },
+
 
   {
     path: '/location',
@@ -41,6 +41,24 @@ const routes = [
     path: '/guardian',
     name: 'Guardian',
     component: GuardianView
+  },
+
+
+  {
+    path: '/delete',
+    name: 'DeleteUser',
+    component: DeleteUser
+  },
+
+  { path: '/UserSettings',
+    name: 'UpdateUser',
+    component: UserSettings
+},
+
+
+  { path: '/guardianSettings',
+    name: 'UpdateGuardian',
+    component: GuardianSettings
   },
 
 ]

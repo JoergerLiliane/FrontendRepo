@@ -21,4 +21,4 @@ import './assets/css/bootstrap.css'
 
 /*new Vue({
     render: h => h(App),
-}).$mount('#app')*/
+}).$mount('#mainNav')*/

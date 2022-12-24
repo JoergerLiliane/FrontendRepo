@@ -1,7 +1,10 @@
 <template>
-  <div class="container-fluid" >
-    <user-card-list :users="this.user"></user-card-list>
-    <UserSignupForm  @created="addUser"></UserSignupForm>
+  <h1>Users</h1>
+  <div class="container-fluid" id="user-view" >
+    <user-card-list :key="store.usercardReload"></user-card-list>
+    <UserSignupForm></UserSignupForm>
+
+
   </div>
 
 </template>
@@ -9,13 +12,11 @@
 <script>
 import UserSignupForm from "@/components/UserSignupForm";
 import UserCardList from "@/components/UserCardList";
-
-
-
+import {store} from "@/assets/store";
 
 
 export default {
-  name: 'UserProfile',
+  name: 'UserView',
   components: {
     UserCardList,
     UserSignupForm,
@@ -24,38 +25,10 @@ export default {
   },
   data () {
     return {
-      user: []
+      store
     }
   },
-  methods: {
-    addUser (userLocation) {
-      console.log(userLocation)
-      const endpoint = process.env.VUE_APP_BACKEND_BASE_URL + userLocation
-      const requestOptions = {
-        method: 'GET',
-        redirect: 'follow'
-      }
 
-      fetch(endpoint, requestOptions)
-          .then(response => response.json())
-          .then(user => this.users.push(user))
-          .catch(error => console.log('error', error))
-    }
-  },
-  mounted () {
-    const endpoint = 'http://localhost:8080//api/v1/user'
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    }
-
-    fetch(endpoint, requestOptions)
-        .then(response => response.json())
-        .then(result => result.forEach(user => {
-          this.users.push(user)
-        }))
-        .catch(error => console.log('error', error))
-  }
 }
 </script>
 

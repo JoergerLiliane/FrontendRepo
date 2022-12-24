@@ -1,7 +1,6 @@
 <template>
   <HomePage></HomePage>
-  <UserSignupForm ></UserSignupForm>
-
+  <UserSignupForm></UserSignupForm>
 
 
 </template>
@@ -18,7 +17,7 @@ export default {
   name: 'HomeView',
   components: {
     HomePage,
-    UserSignupForm
+    UserSignupForm,
   }
 }
 

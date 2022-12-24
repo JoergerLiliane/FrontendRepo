@@ -4,11 +4,12 @@
   </button>
   <div class="offcanvas offcanvas-end" tabindex="-1" id="users-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
-      <h5 id="offcanvas-label">New User</h5>
+      <h5 id="offcanvas-label">New Guardian</h5>
       <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <form class="text-start needs-validation" id="users-create-form" novalidate>
+
+      <form class="text-start needs-validation" id="guardians-create-form" novalidate>
         <div class="mb-3">
           <label for="first-name" class="form-label">Firstname</label>
           <input type="text" class="form-control" id="first-name" v-model="firstName" required>
@@ -54,27 +55,28 @@
             </div>
           </div>
 
+          <label for="userId" class="form-label">User</label>
+          <select id="userId" class="form-select" v-model="user" required>
+            <option value="" selected disabled>Choose...</option>
+            <option value="User" ></option>
 
-          <div class="mb-3">
-            <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="password" v-model="password" required>
-          </div>
+          </select>
+
+
           <div class="invalid-feedback">
-            Please enter a valid password.
+            Please select a valid UserId.
           </div>
-
         </div>
 
-        <div v-if="this.serverValidationMessagesUser">
+        <div v-if="this.serverValidationMessagesGuardian">
           <ul>
-            <li v-for="(message, index) in serverValidationMessagesUser" :key="index" style="color: red">
+            <li v-for="(message, index) in serverValidationMessagesGuardian" :key="index" style="color: red">
               {{ message }}
             </li>
           </ul>
         </div>
-
         <div class="mt-5">
-          <button class="btn btn-primary me-3" type="submit" @click.prevent="createUser">Create</button>
+          <button class="btn btn-primary me-3" type="submit" @click.prevent="createGuardian">Create</button>
           <button class="btn btn-danger" type="reset">Reset</button>
         </div>
       </form>
@@ -84,27 +86,28 @@
 
 
 <script>
-
+import UserCard from "@/components/UserCard";
 
 
 export default {
-  name: 'UserSignupForm',
+  name: 'GuardianSignupForm',
+  components: UserCard,
   data () {
     return {
       firstName: '',
       lastName: '',
       gender: '',
-      country:'',
-      password:'',
-      serverValidationMessagesUser: []
+      country: '',
+      serverValidationMessagesGuardian: []
     }
   },
   emits: ['created'],
   methods: {
-    async createUser () {
-      if (this.validate()) {
 
-        const endpoint = 'http://localhost:8080/api/v1/user'
+    async createGuardian () {
+      if (this.validate() ) {
+
+        const endpoint = 'http://localhost:8080/api/v1/guardian'
 
         const headers = new Headers()
         headers.append('Content-Type', 'application/json')
@@ -136,14 +139,14 @@ export default {
       } else if (response.status === 400) {
         response = await response.json()
         response.errors.forEach(error => {
-          this.serverValidationMessagesUser.push(error.defaultMessage)
+          this.serverValidationMessagesGuardian.push(error.defaultMessage)
         })
       } else {
-        this.serverValidationMessagesUser.push('Unknown error occurred')
+        this.serverValidationMessagesGuardian.push('Unknown error occurred')
       }
     },
     validate () {
-      const form = document.getElementById('users-create-form')
+      const form = document.getElementById('guardians-create-form')
       form.classList.add('was-validated')
       return form.checkValidity()
     },

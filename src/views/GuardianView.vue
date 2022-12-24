@@ -1,12 +1,34 @@
 <template>
-<guar-dian></guar-dian>
+  <h1>Guardian</h1>
+  <div class="container-fluid" id="guardian-view" >
+    <guardian-card-list :key="store.guardiancardReload"></guardian-card-list>
+    <GuardianSignupForm></GuardianSignupForm>
+
+
+  </div>
+
 </template>
 
 <script>
-import GuarDian from "@/components/GuarDian";
+import {store} from "@/assets/store";
+import GuardianCardList from "@/components/GuardianCardList";
+import GuardianSignupForm from "@/components/GuardianSignupForm";
+
+
 export default {
-  name: "GuardianView",
-  components: {GuarDian}
+  name: 'UserView',
+  components: {
+    GuardianSignupForm,
+    GuardianCardList,
+
+
+  },
+  data () {
+    return {
+      store
+    }
+  },
+
 }
 </script>
 

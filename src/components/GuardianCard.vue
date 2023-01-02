@@ -9,13 +9,13 @@
             <div class="card-body p-4">
               <div class="d-flex text-black">
                 <div class="flex-shrink-0">
-                  <img :src="getAvatar(guardian)" class="card-img-top" :alt="guardian.firstName + ' ' + guardian.lastName + '' + guardian.country">
+                  <img :src="getAvatar(guardian)" class="card-img-top" :alt="guardian.firstName + ' ' + guardian.lastName  + '' + guardian.id">
                 </div>
                 <h5 class="card-title">{{ guardian.firstName }} {{ guardian.lastName }}</h5>
                 <p class="card-text">
                   {{ guardian.firstName }} {{ guardian.lastName }}
-                  {{guardian}}
                 </p>
+                <p> {{guardian.id}} </p>
 
                 </div>
 
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+
+
 import {store} from "@/assets/store";
 import router from "@/router";
 
@@ -104,6 +106,7 @@ export default {
 
 
     updateGuardian() {
+      store.guardian = this.guardian
       router.push("/guardianSettings")
     },
 

@@ -6,6 +6,7 @@ export const store = reactive({
     userarray : [],
     user:Object,
     guardiancardReload: 0,
-    guardianarray:[]
+    guardianarray:[],
+    guardian : Object
 
 })

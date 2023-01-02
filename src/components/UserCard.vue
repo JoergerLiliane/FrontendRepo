@@ -115,6 +115,7 @@ export default {
 
 
      updateUser(){
+      store.user = this.user
      router.push("/UserSettings")
     },
   }

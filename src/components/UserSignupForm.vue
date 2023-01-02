@@ -36,32 +36,7 @@
             Please select a valid gender.
           </div>
 
-          <div class="mb-3">
-            <label for="country" class="form-label">Country <span class="text-danger"></span></label>
-            <select id="country" class="form-control form-control-lg" v-model="country" required>
-              <option value="">Select Country</option>
-              <option value="MALE">Germany</option>
-              <option value="FEMALE">France</option>
-              <option value="DIVERSE">Italy</option>
-              <option value="DIVERSE">Spain</option>
-              <option value="DIVERSE">Portugal</option>
-              <option value="DIVERSE">South Africa</option>
-              <option value="DIVERSE">United States</option>
-              <option value="DIVERSE">United Kingdom</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid country.
-            </div>
-          </div>
 
-
-          <div class="mb-3">
-            <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
-            <input type="text" class="form-control" id="password" v-model="password" required>
-          </div>
-          <div class="invalid-feedback">
-            Please enter a valid password.
-          </div>
 
         </div>
 
@@ -87,6 +62,8 @@
 
 
 
+import {store} from "@/assets/store";
+
 export default {
   name: 'UserSignupForm',
   data () {
@@ -94,8 +71,6 @@ export default {
       firstName: '',
       lastName: '',
       gender: '',
-      country:'',
-      password:'',
       serverValidationMessagesUser: []
     }
   },
@@ -104,7 +79,7 @@ export default {
     async createUser () {
       if (this.validate()) {
 
-        const endpoint = 'http://localhost:8080/api/v1/xmas'
+        const endpoint = 'http://localhost:8080/api/v1/user'
 
         const headers = new Headers()
         headers.append('Content-Type', 'application/json')
@@ -113,6 +88,10 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           gender: this.gender,
+
+
+
+
         })
 
         const requestOptions = {
@@ -123,11 +102,14 @@ export default {
         }
 
         const response = await fetch(endpoint, requestOptions)
+        this.reload()
         await this.handleResponse(response)
       }
     },
 
-
+    reload(){
+      store.usercardReload++
+    },
 
     async handleResponse (response) {
       if (response.ok) {

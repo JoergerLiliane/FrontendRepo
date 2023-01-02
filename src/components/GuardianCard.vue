@@ -40,13 +40,8 @@
                     <button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Chat</button>
                     <button type="button" class="btn btn-primary flex-grow-1">Add</button>
                     <button class="btn btn-warning me-3" type="update" @click="updateGuardian()" href="/guardianSettings">Edit Guardian</button>
-                    <div v-if="guardian.userId > 0">
-                      <button class="btn btn-primary me-3" type="delete" @click="deleteUser(guardian.userId)" id="deleteGuardian" href="/delete-user">Delete Users</button>
-                    </div>
-                    <div v-if="guardian.userId.length === 0">
                       <button class="btn btn-primary me-3" type="delete" @click="deleteGuardian(guardian.id)" id="deleteUser" href="/delete-user">Delete Guardian</button>
                     </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -60,6 +55,7 @@
 <script>
 import {store} from "@/assets/store";
 import router from "@/router";
+
 
 export default {
   props: {
@@ -86,27 +82,13 @@ export default {
     //https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp
 
 
-    async deleteUser(users) {
 
-      if (users.length > 0) {
-        for (let i = 0; i < users.length; i++) {
-          const endpoint = `http://localhost:8080/api/v1/guardian/${users[i]}`
-          const requestOptions = {
-            method: 'DELETE',
-            redirect: 'follow'
-          };
-          await fetch(endpoint, requestOptions)
-              .catch((error) => console.log('error', error));
-        }
-        this.reload()
-      }
+    reload(){
+      store.guardiancardReload++
     },
 
-    reload() {
-      store.usercardReload++
-    },
 
-    async deleteGuardian(id) {
+     async deleteGuardian(id) {
       console.log(store.usercardReload)
       const endpoint = `http://localhost:8080/api/v1/guardian/${id}`
       const requestOptions = {
@@ -114,10 +96,11 @@ export default {
         redirect: 'follow'
       };
 
-      await fetch(endpoint, requestOptions)
+       await fetch(endpoint, requestOptions)
           .catch((error) => console.log('error', error));
       this.reload()
     },
+
 
 
     updateGuardian() {

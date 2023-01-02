@@ -95,10 +95,10 @@ export default {
         this.reload()
       }
     },
-
     reload(){
       store.usercardReload++
     },
+
 
     async deleteUser(id) {
       console.log(store.usercardReload)

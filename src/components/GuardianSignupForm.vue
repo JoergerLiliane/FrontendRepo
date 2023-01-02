@@ -37,31 +37,30 @@
             Please select a valid gender.
           </div>
 
+
           <div class="mb-3">
-            <label for="country" class="form-label">Country <span class="text-danger"></span></label>
-            <select id="country" class="form-control form-control-lg" v-model="country" required>
-              <option value="">Select Country</option>
-              <option value="MALE">Germany</option>
-              <option value="FEMALE">France</option>
-              <option value="DIVERSE">Italy</option>
-              <option value="DIVERSE">Spain</option>
-              <option value="DIVERSE">Portugal</option>
-              <option value="DIVERSE">South Africa</option>
-              <option value="DIVERSE">United States</option>
-              <option value="DIVERSE">United Kingdom</option>
-            </select>
+            <label for="user-Id" class="form-label">UserId</label>
+            <input type="text" class="form-control" id="user-Id" v-model="userId" required>
             <div class="invalid-feedback">
-              Please select a valid country.
+              Please provide the user you want to connect your guardian with.
             </div>
           </div>
 
-          <label for="userId" class="form-label">User</label>
-          <select id="userId" class="form-select" v-model="user" required>
-            <option value="" selected disabled>Choose...</option>
-            <option value="User" ></option>
+          <div class="mb-3">
+            <label for="phone-number" class="form-label">phoneNumber</label>
+            <input type="text" class="form-control" id="phone-Number" v-model="phoneNumber" required>
+            <div class="invalid-feedback">
+              Please provide a valide phone number.
+            </div>
+          </div>
 
-          </select>
-
+          <div class="mb-3">
+            <label for="priority-level" class="form-label">PriorityLevel</label>
+            <input type="text" class="form-control" id="priority-level" v-model="priorityLevel" required>
+            <div class="invalid-feedback">
+              Please provide a valid priority level.
+            </div>
+          </div>
 
           <div class="invalid-feedback">
             Please select a valid UserId.
@@ -87,25 +86,30 @@
 
 <script>
 import UserCard from "@/components/UserCard";
+import {store} from "@/assets/store";
 
 
 export default {
   name: 'GuardianSignupForm',
   components: UserCard,
-  data () {
+  data() {
     return {
       firstName: '',
       lastName: '',
       gender: '',
-      country: '',
+      phoneNumber: '',
+      guardian:'',
+      priorityLevel:'',
+      userId:'',
+
       serverValidationMessagesGuardian: []
     }
   },
   emits: ['created'],
   methods: {
 
-    async createGuardian () {
-      if (this.validate() ) {
+    async createGuardian() {
+      if (this.validate()) {
 
         const endpoint = 'http://localhost:8080/api/v1/guardian'
 
@@ -116,6 +120,11 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           gender: this.gender,
+          phoneNumber: this.phoneNumber,
+          guardian: true,
+          priorityLevel: this.priorityLevel,
+          userId: this.userId
+
         })
 
         const requestOptions = {
@@ -126,13 +135,20 @@ export default {
         }
 
         const response = await fetch(endpoint, requestOptions)
+
+        this.reload()
+
         await this.handleResponse(response)
+
+
       }
     },
 
+    reload(){
+      store.guardiancardReload++
+    },
 
-
-    async handleResponse (response) {
+    async handleResponse(response) {
       if (response.ok) {
         this.$emit('created', response.headers.get('location'))
         document.getElementById('close-offcanvas').click()
@@ -145,14 +161,17 @@ export default {
         this.serverValidationMessagesGuardian.push('Unknown error occurred')
       }
     },
-    validate () {
+    validate() {
       const form = document.getElementById('guardians-create-form')
       form.classList.add('was-validated')
       return form.checkValidity()
     },
 
 
-  }
+  },
+
+
+
 }
 </script>
 

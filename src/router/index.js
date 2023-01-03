@@ -3,10 +3,11 @@ import HomeView from '../views/HomeView.vue'
 import AboutView from '@/views/AboutView.vue'
 import LocationView from "@/views/LocationView";
 import UserView from "@/views/UserView";
-import GuardianView from "@/views/GuardianView";
 import DeleteUser from "@/components/DeleteUser";
 import UserSettings from "@/components/UserSettings";
 import GuardianSettings from "@/components/GuardianSettings";
+import GuardianView from "@/views/GuardianView";
+import AddGuardian from "@/components/AddGuardian";
 
 
 
@@ -61,6 +62,11 @@ const routes = [
     component: GuardianSettings
   },
 
+
+  { path: '/AddGuardian',
+    name: 'AddGuardian',
+    component: AddGuardian
+  },
 ]
 
 const router = createRouter({

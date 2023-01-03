@@ -1,13 +1,14 @@
 <template>
-  <button class="btn btn-success sticky-button" data-bs-toggle="offcanvas" data-bs-target="#users-create-offcanvas" aria-controls="#users-create-offcanvas">
-    <i class="bi bi-user-plus-fill"></i>
-  </button>
+  <button class="btn btn-success sticky-button"  data-bs-toggle="offcanvas" data-bs-target="#users-create-offcanvas" aria-controls="#users-create-offcanvas">
+    <i class="bi bi-user-plus-fill" ></i></button>
+
   <div class="offcanvas offcanvas-end" tabindex="-1" id="users-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
       <h5 id="offcanvas-label">New Guardian</h5>
       <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
+
 
       <form class="text-start needs-validation" id="guardians-create-form" novalidate>
         <div class="mb-3">
@@ -81,12 +82,18 @@
       </form>
     </div>
   </div>
+
+
+
+
+
 </template>
 
 
 <script>
 import UserCard from "@/components/UserCard";
 import {store} from "@/assets/store";
+import router from "@/router";
 
 
 export default {
@@ -101,7 +108,6 @@ export default {
       guardian:'',
       priorityLevel:'',
       userId:'',
-
       serverValidationMessagesGuardian: []
     }
   },
@@ -140,6 +146,7 @@ export default {
 
         await this.handleResponse(response)
 
+        await router.push("/guardian")
 
       }
     },

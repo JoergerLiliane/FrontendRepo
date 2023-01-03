@@ -1,13 +1,14 @@
 <template>
 
-  <div class="card h-100" id="user-card">
-    <img :src="getAvatar(user)" class="card-img-top" :alt="user.firstName + ' ' + user.lastName + '' + user.country">
+  <div class="card h-1" id="user-card">
+    <img :src="getAvatar(user)" class="rounded-circle img-thumbnail" :alt="user.firstName + ' ' + user.lastName ">
     <div class="card-body">
-      <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
-      <p class="card-text">
-        {{ user.firstName }} {{ user.lastName }}
-      </p>
-      <button class="btn btn-warning me-3" type="update" @click="updateUser()" href="/userSettings">Edit User</button>
+      <h5 class="card-title"> <label>Firstname:</label> {{ user.firstName }}</h5>
+      <h5><label>Lastname:</label> {{ user.lastName }}</h5>
+      <h5><label>Number:</label> {{user.phoneNumber}}</h5>
+      <h5><label>UserId:</label> {{user.id}}</h5>
+
+      <button class="btn btn-warning me-3" type="update" @click="updateUser()" href="/userSettings">Edit</button>
 
       <p id='txt'>Change your datas here</p>
       {{user}}
@@ -15,17 +16,16 @@
       <input type="text" id="name" placeholder="name">
       <input type="text" id="marks" placeholder="marks">
     </div>
-
-
       <button onclick="submit()">Submit</button>
     </div>
+
     <div class="mt-5">
 
       <div v-if="user.guardianId > 0">
         <button class="btn btn-primary me-3" type="delete" @click="deleteGuardian(user.guardianId)" id="deleteGuardian" href="/delete-user">Delete Guardians</button>
       </div>
       <div v-if="user.guardianId.length === 0">
-        <button class="btn btn-primary me-3" type="delete" @click="deleteUser(user.id)" id="deleteUser" href="/delete-user">Delete User</button>
+        <button class="btn btn-primary me-3" type="delete" @click="deleteUser(user.id)" id="deleteUser" href="/delete-user">Delete</button>
       </div>
       <div id="results">
       </div>

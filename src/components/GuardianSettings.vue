@@ -1,4 +1,4 @@
-<template>
+<template >
   <html>
   <!-- Button trigger modal -->
   <div class="card h-100" id="guadianSettings">
@@ -9,7 +9,10 @@
     <div class="container rounded bg-white mt-5 mb-5">
       <div class="row">
         <div class="col-md-3 border-right">
-          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{store.guardian.firstName}} {{store.guardian.lastName}}</span><span class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><label class="font-weight-bold">Firstname</label><span class="labels">{{store.guardian.firstName}}</span><label class="font-weight-bold">Lastname</label><span class="labels">{{store.guardian.lastName}}</span>
+            <label class="font-weight-bold">Phone number</label><span class="labels">{{store.guardian.phoneNumber}}</span>
+            <label class="font-weight-bold">Priority level</label><span class="labels">{{store.guardian.priorityLevel}}</span>
+          </div>
         </div>
         <div class="col-md-5 border-right">
           <div class="p-3 py-5">
@@ -18,7 +21,7 @@
             </div>
             <div class="row mt-2">
               <div class="col-md-6"><label class="labels">Firstname</label><input type="text" class="form-control" placeholder="Firstname"  v-model="firstName"></div>
-              <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control"  placeholder="lastname" v-model="lastName" ></div>
+              <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control"  placeholder="lastname" v-model="LastName" ></div>
             </div>
             <div class="row mt-3">
               <div class="col-md-12"><label class="labels">Number</label><input type="text" class="form-control" placeholder="enter phone number"  v-model="phoneNumber"></div>
@@ -47,7 +50,7 @@ import router from "@/router";
 
 
 export default {
-  name: "UserUpdate",
+  name: "GuardianSettings",
   data() {
     return {
       firstName: "",
@@ -90,7 +93,7 @@ export default {
       const headers = new Headers()
       headers.append('Content-Type', 'application/json')
 
-      console.log(store.usercardReload)
+      console.log(store.guardiancardReload)
       const endpoint = `http://localhost:8080/api/v1/guardian/${store.guardian.id}`
       const requestOptions = {
         method: 'PUT',

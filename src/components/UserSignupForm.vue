@@ -36,7 +36,13 @@
             Please select a valid gender.
           </div>
 
-
+          <div class="mb-3">
+            <label for="phone-number" class="form-label">phoneNumber</label>
+            <input type="text" class="form-control" id="phone-Number" v-model="phoneNumber" required>
+            <div class="invalid-feedback">
+              Please provide a valide phone number.
+            </div>
+          </div>
 
         </div>
 
@@ -71,6 +77,8 @@ export default {
       firstName: '',
       lastName: '',
       gender: '',
+      phoneNumber:'',
+      user:'true',
       serverValidationMessagesUser: []
     }
   },
@@ -88,6 +96,8 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           gender: this.gender,
+          phone: this.phoneNumber,
+          guardianId: store.user.guardianId
 
 
 

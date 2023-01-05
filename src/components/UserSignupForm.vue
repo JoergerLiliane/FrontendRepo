@@ -35,7 +35,7 @@
           <div class="invalid-feedback">
             Please select a valid gender.
           </div>
-
+        </div>
           <div class="mb-3">
             <label for="phone-number" class="form-label">phoneNumber</label>
             <input type="text" class="form-control" id="phone-Number" v-model="phoneNumber" required>
@@ -43,8 +43,37 @@
               Please provide a valide phone number.
             </div>
           </div>
-
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <select id="country" class="form-select" v-model="country" >
+            <option value="">Select Country</option>
+            <option value="" selected disabled>Choose...</option>
+            <option value="Germany">Germany</option>
+            <option value="France">France</option>
+            <option value="Spain">Spain</option>
+            <option value="Spain">Others</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid country.
+          </div>
         </div>
+          <div class="mb-3">
+            <label for="userName" class="form-label">userName</label>
+            <input type="text" class="form-control" id="userName" v-model="userName" required>
+            <div class="invalid-feedback">
+              Please provide a valide username.
+            </div>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="password" class="form-label">password</label>
+            <input type="text" class="form-control" id="password" v-model="password" required>
+            <div class="invalid-feedback">
+              Please provide a valide password.
+            </div>
+          </div>
+
 
         <div v-if="this.serverValidationMessagesUser">
           <ul>
@@ -79,6 +108,9 @@ export default {
       gender: '',
       phoneNumber:'',
       user:'true',
+      country:'',
+      userName:'',
+      password:'',
       serverValidationMessagesUser: []
     }
   },
@@ -97,7 +129,10 @@ export default {
           lastName: this.lastName,
           gender: this.gender,
           phone: this.phoneNumber,
-          guardianId: store.user.guardianId
+          guardianId: store.user.guardianId,
+          country:this.country,
+          userName:this.userName,
+          password:this.password
 
 
 

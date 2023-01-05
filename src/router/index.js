@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import AboutView from '@/views/AboutView.vue'
 import LocationView from "@/views/LocationView";
 import UserView from "@/views/UserView";
 import DeleteUser from "@/components/DeleteUser";
@@ -8,6 +7,10 @@ import UserSettings from "@/components/UserSettings";
 import GuardianSettings from "@/components/GuardianSettings";
 import GuardianView from "@/views/GuardianView";
 import AddGuardian from "@/components/AddGuardian";
+
+import RegistrationUserView from "@/views/RegistrationUserView";
+import LoginUserView from "@/views/LoginUserView";
+
 
 
 
@@ -19,12 +22,18 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'About',
-    component: AboutView
+    path: '/registration',
+    name: 'Registration',
+    component: RegistrationUserView
 
   },
 
+  {
+    path: '/login',
+    name: 'Login',
+    component: LoginUserView
+
+  },
 
   {
     path: '/location',
@@ -54,7 +63,7 @@ const routes = [
   { path: '/UserSettings',
     name: 'UpdateUser',
     component: UserSettings
-},
+  },
 
 
   { path: '/guardianSettings',

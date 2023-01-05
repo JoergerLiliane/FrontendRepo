@@ -10,6 +10,12 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav text-uppercase ml-auto">
       <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/registration">Registration</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="/profile">Profile</a>
       </li>
       <li class="nav-item">

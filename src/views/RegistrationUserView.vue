@@ -7,8 +7,8 @@
     </ul>
   </div>
 
-  <div class="LoginUser" id="login">
-    <h1>Login</h1>
+  <div class="LoginUser" id="registration">
+    <h1>Registration</h1>
   </div>
   <UserSignupForm></UserSignupForm>
 
@@ -28,7 +28,36 @@
     <div class="signup">
       <form   class="text-start needs-validation" id="users-create-form" novalidate >
         <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        <label for="chk" aria-hidden="true">Login</label>
+        <label for="chk" aria-hidden="true">Sign up</label>
+        <input type="text" name="txt" placeholder="firstName" v-model="firstName" required><div class="invalid-feedback">
+        Please provide the firstname.
+      </div>
+        <input type="text" name="txt" placeholder="lastName" v-model="lastName" required>
+        <div class="invalid-feedback">
+          Please provide the firstname.
+        </div>
+        <select id="gender" class="form" v-model="gender" required>
+          <option value="">Select Gender</option>
+          <option value="" selected disabled>Choose...</option>
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+          <option value="DIVERSE">Diverse</option>
+          <option value="Unkown">Unknown</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid gender.
+        </div>
+        <select id="country" class="form" v-model="country" required>
+          <option value="">Select Country</option>
+          <option value="" selected disabled>Choose...</option>
+          <option value="Germany">Germany</option>
+          <option value="France">France</option>
+          <option value="Spain">Spain</option>
+          <option value="Others">Others</option>
+        </select>
+        <div class="invalid-feedback">
+          Please select a valid country.
+        </div>
         <input type="text" name="txt" placeholder="userName" v-model="userName" required>
         <div class="invalid-feedback">
           Please provide a username.
@@ -45,14 +74,20 @@
           </ul>
         </div>
         <div class="mt-5">
-          <button type="submit" @click.prevent="login">Login</button>
+          <button type="submit" @click.prevent="registerUser">Registration</button>
           <button class="btn btn-danger" type="reset">Reset</button>
         </div>
 
       </form>
     </div>
 
+    <div></div>
 
+    <div class="login" id="login">
+      <form>
+        <button type="submit" @click.prevent="loginUser">Login</button>
+      </form>
+    </div>
 
   </div>
 
@@ -74,6 +109,11 @@ export default {
   name: 'LoginUserView',
   data () {
     return {
+      firstName: '',
+      lastName: '',
+      gender: '',
+      user:'true',
+      country:'',
       userName:'',
       password:'',
       serverValidationMessagesUser: []
@@ -81,8 +121,7 @@ export default {
   },
   emits: ['created'],
   methods: {
-
-    async login() {
+    async registerUser () {
       if (this.validate()) {
 
         const endpoint = 'http://localhost:8080/api/v1/user'
@@ -91,7 +130,11 @@ export default {
         headers.append('Content-Type', 'application/json')
 
         const user = JSON.stringify({
+          firstName: this.firstName,
+          lastName: this.lastName,
+          gender: this.gender,
           guardianId: store.user.guardianId,
+          country: this.country,
           userName: this.userName,
           passWord: this.password,
 
@@ -108,7 +151,7 @@ export default {
         const response = await fetch(endpoint, requestOptions)
         this.reload()
         await this.handleResponse(response)
-        await router.push("/profile")
+        await router.push("/login")
       }
     },
 
@@ -133,17 +176,18 @@ export default {
       const form = document.getElementById('users-create-form')
       form.classList.add('was-validated')
       return form.checkValidity()
-
     },
 
-
+    loginUser(){
+      router.push("/login")
 
   },
 
 
+  //Login
 
 
-
+}
 
 
 

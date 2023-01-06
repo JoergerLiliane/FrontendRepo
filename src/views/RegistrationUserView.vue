@@ -102,7 +102,7 @@
 <script >
 //Registration
 
-import {store} from "@/assets/store";
+import {store} from "@/store";
 import router from "@/router";
 
 export default {
@@ -136,7 +136,7 @@ export default {
           guardianId: store.user.guardianId,
           country: this.country,
           userName: this.userName,
-          passWord: this.password,
+          passWord: this.passWord,
 
 
         })
@@ -148,6 +148,8 @@ export default {
           redirect: 'follow'
         }
 
+
+
         const response = await fetch(endpoint, requestOptions)
         this.reload()
         await this.handleResponse(response)
@@ -158,7 +160,6 @@ export default {
     reload(){
       store.usercardReload++
     },
-
     async handleResponse (response) {
       if (response.ok) {
         this.$emit('created', response.headers.get('location'))
@@ -168,15 +169,24 @@ export default {
         response.errors.forEach(error => {
           this.serverValidationMessagesUser.push(error.defaultMessage)
         })
-      } else {
+      }else if (  this.userName  ) {
+        response.status === (400).json() ({ message: "this username already exists. Choose an other one!" });
+
+        }
+
+      else {
         this.serverValidationMessagesUser.push('Unknown error occurred')
       }
+
+
+
     },
     validate () {
       const form = document.getElementById('users-create-form')
       form.classList.add('was-validated')
       return form.checkValidity()
     },
+
 
     loginUser(){
       router.push("/login")
@@ -185,6 +195,8 @@ export default {
 
 
   //Login
+
+
 
 
 }

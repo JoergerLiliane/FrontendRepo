@@ -10,7 +10,7 @@
 <script>
 import GuardianCard from "@/components/GuardianCard";
 import {onMounted} from "vue";
-import {store} from "@/assets/store";
+import {store} from "@/store";
 
 
 async function updateExisting() {

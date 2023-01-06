@@ -10,7 +10,7 @@
 <script>
 import UserCard from '@/components/UserCard'
 import {onMounted} from "vue";
-import {store} from "@/assets/store";
+import {store} from "@/store";
 
 
 async function UpdateExisting() {

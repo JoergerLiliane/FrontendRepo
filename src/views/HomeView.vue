@@ -1,6 +1,6 @@
 <template>
   <HomePage></HomePage>
-  <UserSignupForm></UserSignupForm>
+
 
 
 </template>
@@ -10,14 +10,14 @@
 
 
 import HomePage from "@/components/HomePage";
-import UserSignupForm from "@/components/UserSignupForm";
+
 
 
 export default {
   name: 'HomeView',
   components: {
     HomePage,
-    UserSignupForm,
+
   }
 }
 

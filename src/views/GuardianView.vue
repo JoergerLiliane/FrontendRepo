@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {store} from "@/assets/store";
+import {store} from "@/store";
 import GuardianCardList from "@/components/GuardianCardList";
 
 

@@ -10,9 +10,9 @@
 </template>
 
 <script>
-import UserSignupForm from "@/components/UserSignupForm";
+import UserSignupForm from "@/components/LogoutButton";
 import UserCardList from "@/components/UserCardList";
-import {store} from "@/assets/store";
+import {store} from "@/store";
 
 
 export default {

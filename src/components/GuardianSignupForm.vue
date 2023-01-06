@@ -92,7 +92,7 @@
 
 <script>
 import UserCard from "@/components/UserCard";
-import {store} from "@/assets/store";
+import {store} from "@/store";
 import router from "@/router";
 
 

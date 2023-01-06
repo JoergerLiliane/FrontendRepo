@@ -46,7 +46,7 @@
         </div>
         <div class="mt-5">
           <button type="submit" @click.prevent="login">Login</button>
-          <button class="btn btn-danger" type="reset">Reset</button>
+          <button class="btn btn-danger" type="reset" >Reset</button>
         </div>
 
       </form>
@@ -67,8 +67,13 @@
 <script >
 //Registration
 
-import {store} from "@/assets/store";
+import {store} from "@/store";
 import router from "@/router";
+
+//const bcrypt = require("bcryptjs")
+
+
+
 
 export default {
   name: 'LoginUserView',
@@ -79,37 +84,53 @@ export default {
       serverValidationMessagesUser: []
     }
   },
+
+
+
+
+
+
+
   emits: ['created'],
   methods: {
 
+
+
     async login() {
-      if (this.validate()) {
 
-        const endpoint = 'http://localhost:8080/api/v1/user'
+        if (this.validate() && this.userName  && this.password ) {
 
-        const headers = new Headers()
-        headers.append('Content-Type', 'application/json')
+          const endpoint = 'http://localhost:8080/api/v1/user'
 
-        const user = JSON.stringify({
-          guardianId: store.user.guardianId,
-          userName: this.userName,
-          passWord: this.password,
+          const headers = new Headers()
+          headers.append('Content-Type', 'application/json')
+
+          const user = JSON.stringify({
+            guardianId: store.user.guardianId,
+            userName: this.userName,
+            passWord: this.password,
 
 
-        })
+          })
 
-        const requestOptions = {
-          method: 'POST',
-          headers: headers,
-          body: user,
-          redirect: 'follow'
+          const requestOptions = {
+            method: 'POST',
+            headers: headers,
+            body: user,
+            redirect: 'follow'
+          }
+
+          const response = await fetch(endpoint, requestOptions)
+          this.reload()
+          await this.handleResponse(response)
+          await router.push("/profile")
+
+        }
+        else {
+          this.serverValidationMessagesUser.push("Username or Password is not present");
+
         }
 
-        const response = await fetch(endpoint, requestOptions)
-        this.reload()
-        await this.handleResponse(response)
-        await router.push("/profile")
-      }
     },
 
     reload(){
@@ -125,10 +146,17 @@ export default {
         response.errors.forEach(error => {
           this.serverValidationMessagesUser.push(error.defaultMessage)
         })
-      } else {
+      } else if (!this.userName || !this.password){
+        response.status === (400).json() ({ message: "Username or Password is not present" });
+
+      }else {
         this.serverValidationMessagesUser.push('Unknown error occurred')
       }
+
+
     },
+
+
     validate () {
       const form = document.getElementById('users-create-form')
       form.classList.add('was-validated')
@@ -138,13 +166,7 @@ export default {
 
 
 
-  },
-
-
-
-
-
-
+  }
 
 
 

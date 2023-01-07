@@ -6,7 +6,6 @@ import DeleteUser from "@/components/DeleteUser";
 import UserSettings from "@/components/UserSettings";
 import GuardianSettings from "@/components/GuardianSettings";
 import GuardianView from "@/views/GuardianView";
-import AddGuardian from "@/components/AddGuardian";
 
 import RegistrationUserView from "@/views/RegistrationUserView";
 import LoginUserView from "@/views/LoginUserView";
@@ -72,10 +71,6 @@ const routes = [
   },
 
 
-  { path: '/AddGuardian',
-    name: 'AddGuardian',
-    component: AddGuardian
-  },
 ]
 
 const router = createRouter({

@@ -8,7 +8,8 @@
       <h5><label>Number:</label> {{user.phoneNumber}}</h5>
       <h5><label>UserId:</label> {{user.id}}</h5>
 
-      <button class="btn btn-warning me-3" type="update" @click="updateUser()" href="/userSettings">Edit</button>
+      <button class="btn btn-success me-3" type="add" @click="addGuardian" id="addGuardian" href="/guardian">Add Guardians</button>
+      <button class="btn btn-warning me-3" type="update" @click="editUser()" href="/userSettings">Edit</button>
 
       <p id='txt'>Change your datas here</p>
       {{user}}
@@ -21,11 +22,12 @@
 
     <div class="mt-5">
 
+
       <div v-if="user.guardianId > 0">
-        <button class="btn btn-primary me-3" type="delete" @click="deleteGuardian(user.guardianId)" id="deleteGuardian" href="/delete-user">Delete Guardians</button>
+        <button class="btn btn-danger me-3" type="delete" @click="deleteGuardian(user.guardianId)" id="deleteGuardian" href="/delete-user">Delete Guardians</button>
       </div>
       <div v-if="user.guardianId.length === 0">
-        <button class="btn btn-primary me-3" type="delete" @click="deleteUser(user.id)" id="deleteUser" href="/delete-user">Delete</button>
+        <button class="btn btn-danger me-3" type="delete" @click="deleteUser(user.id)" id="deleteUser" href="/delete-user">Delete</button>
       </div>
       <div id="results">
       </div>
@@ -114,11 +116,19 @@ export default {
     },
 
 
-     updateUser(){
+     editUser(){
       store.user = this.user
      router.push("/UserSettings")
     },
+
+
+    addGuardian(){
+      store.user = this.user
+      router.push("/guardian")
+    },
   }
+
+
 }
 
 

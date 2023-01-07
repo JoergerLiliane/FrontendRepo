@@ -15,9 +15,11 @@
               <label class="font-weight-bold">Firstname: {{guardian.firstName}} Lastname: {{guardian.lastName}} number: {{guardian.phoneNumber}} Priority level: {{guardian.priorityLevel}} userId: {{store.guardian.userId}}</label>
                 <div class="flex-grow-1 ms-3"><div class="d-flex justify-content-start rounded-3 p-2 mb-2"
                        style="background-color: #efefef;"></div><div class="d-flex pt-1">
+                  <p id='txt'>Change your datas here</p>
+                  {{guardian}}
                     <button type="button" class="btn btn-outline-primary me-1 flex-grow-1">Chat</button>
-                    <button type="button" class="btn btn-primary flex-grow-1" @click="addGuardian()">Add</button>
-                    <button class="btn btn-warning me-3" type="update" @click="updateGuardian()" href="/guardianSettings">Edit Guardian</button>
+
+                    <button class="btn btn-warning me-3" type="update" @click="editGuardian()" href="/guardianSettings">Edit Guardian</button>
                     <button class="btn btn-danger me-3" type="delete" @click="deleteGuardian(guardian.id)" href="/delete-user">Delete Guardian</button>
                     </div>
                 </div>
@@ -83,15 +85,11 @@ export default {
 
 
 
-    updateGuardian() {
+    editGuardian() {
       store.guardian = this.guardian
       router.push("/guardianSettings")
     },
 
-    addGuardian() {
-      router.push("/AddGuardian")
-
-    }
 
   }
 

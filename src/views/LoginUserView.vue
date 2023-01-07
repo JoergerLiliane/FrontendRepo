@@ -98,7 +98,7 @@ export default {
 
     async login() {
 
-        if (this.validate() && this.userName  && this.password ) {
+        if (this.validate()) {
 
           const endpoint = 'http://localhost:8080/api/v1/user'
 

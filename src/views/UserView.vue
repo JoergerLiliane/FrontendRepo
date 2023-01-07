@@ -1,5 +1,5 @@
 <template>
-  <h1>Users</h1>
+  <h1>User</h1>
   <div class="container-fluid" id="user-view" >
     <user-card-list :key="store.usercardReload"></user-card-list>
     <UserSignupForm></UserSignupForm>

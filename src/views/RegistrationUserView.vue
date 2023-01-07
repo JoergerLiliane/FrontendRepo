@@ -2,7 +2,7 @@
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav text-uppercase ml-auto">
       <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="/pro">Profile</a>
+        <a class="nav-link js-scroll-trigger" >Profile</a>
       </li>
     </ul>
   </div>
@@ -136,7 +136,7 @@ export default {
           guardianId: store.user.guardianId,
           country: this.country,
           userName: this.userName,
-          passWord: this.passWord,
+          password: this.password,
 
 
         })

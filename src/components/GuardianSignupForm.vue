@@ -1,6 +1,6 @@
 <template>
   <button class="btn btn-success sticky-button"  data-bs-toggle="offcanvas" data-bs-target="#users-create-offcanvas" aria-controls="#users-create-offcanvas">
-    <i class="bi bi-user-plus-fill" ></i></button>
+    <i class="bi bi-user-plus-fill" ></i><a class="navbar-brand js-scroll-trigger" >Add Guardian</a></button>
 
   <div class="offcanvas offcanvas-end" tabindex="-1" id="users-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
@@ -91,14 +91,14 @@
 
 
 <script>
-import UserCard from "@/components/UserCard";
+
 import {store} from "@/store";
 import router from "@/router";
 
 
 export default {
   name: 'GuardianSignupForm',
-  components: UserCard,
+
   data() {
     return {
       firstName: '',

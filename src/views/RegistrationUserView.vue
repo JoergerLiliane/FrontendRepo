@@ -169,12 +169,7 @@ export default {
         response.errors.forEach(error => {
           this.serverValidationMessagesUser.push(error.defaultMessage)
         })
-      }else if (  this.userName  ) {
-        response.status === (400).json() ({ message: "this username already exists. Choose an other one!" });
-
-        }
-
-      else {
+      } else {
         this.serverValidationMessagesUser.push('Unknown error occurred')
       }
 

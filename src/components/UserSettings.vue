@@ -20,7 +20,7 @@
             </div>
             <div class="row mt-2">
               <div class="col-md-6"><label class="labels">Firstname</label><input type="text" class="form-control" placeholder="Firstname"  v-model="firstName"></div>
-              <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control"  placeholder="lastname" v-model="LastName" ></div>
+              <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control"  placeholder="Lastname" v-model="lastName" ></div>
             </div>
             <div class="row mt-3">
               <div class="col-md-12"><label class="labels">Number</label><input type="text" class="form-control" placeholder="enter phone number"  v-model="phoneNumber"></div>
@@ -58,6 +58,8 @@ export default {
 
   methods: {
     async editUserSettings() {
+      console.log(this.lastName)
+
       if (this.firstName.length<2) {
         this.firstName = store.user.firstName
       }
@@ -65,6 +67,8 @@ export default {
       if (this.lastName.length<3) {
         this.lastName = store.user.lastName
       }
+
+      console.log(this.lastName +'1')
 
       if (this.phoneNumber.length<1) {
         this.phoneNumber = store.user.phoneNumber
@@ -76,7 +80,7 @@ export default {
         firstName: this.firstName,
         lastName: this.lastName,
         gender: store.user.gender,
-        phoneNumber: this.phoneNumber,
+        phoneNumber: parseFloat(this.phoneNumber),
         guardianId: store.user.guardianId
 
       })

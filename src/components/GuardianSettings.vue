@@ -21,7 +21,7 @@
             </div>
             <div class="row mt-2">
               <div class="col-md-6"><label class="labels">Firstname</label><input type="text" class="form-control" placeholder="Firstname"  v-model="firstName"></div>
-              <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control"  placeholder="lastname" v-model="LastName" ></div>
+              <div class="col-md-6"><label class="labels">Lastname</label><input type="text" class="form-control"  placeholder="lastname" v-model="lastName" ></div>
             </div>
             <div class="row mt-3">
               <div class="col-md-12"><label class="labels">Number</label><input type="text" class="form-control" placeholder="enter phone number"  v-model="phoneNumber"></div>
@@ -84,7 +84,7 @@ export default {
         firstName: this.firstName,
         lastName: this.lastName,
         gender: store.guardian.gender,
-        phoneNumber: this.phoneNumber,
+        phoneNumber: parseFloat(this.phoneNumber),
         priorityLevel: this.priorityLevel,
         userId: store.guardian.userId
 

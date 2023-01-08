@@ -5,7 +5,6 @@
   <div class="offcanvas offcanvas-end" tabindex="-1" id="users-create-offcanvas" aria-labelledby="offcanvas-label">
     <div class="offcanvas-header">
       <h5 id="offcanvas-label">New Guardian</h5>
-      <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
 
@@ -33,20 +32,18 @@
             <option value="MALE">Male</option>
             <option value="FEMALE">Female</option>
             <option value="DIVERSE">Diverse</option>
+            <option value="UNKNOWN">Unknown</option>
           </select>
           <div class="invalid-feedback">
             Please select a valid gender.
           </div>
-
-
           <div class="mb-3">
             <label for="user-Id" class="form-label">UserId</label>
             <input type="text" class="form-control" id="user-Id" v-model="userId" required>
             <div class="invalid-feedback">
-              Please provide the user you want to connect your guardian with.
+              Please provide a userId.
             </div>
           </div>
-
           <div class="mb-3">
             <label for="phone-number" class="form-label">phoneNumber</label>
             <input type="text" class="form-control" id="phone-Number" v-model="phoneNumber" required>
@@ -54,7 +51,6 @@
               Please provide a valide phone number.
             </div>
           </div>
-
           <div class="mb-3">
             <label for="priority-level" class="form-label">PriorityLevel</label>
             <input type="text" class="form-control" id="priority-level" v-model="priorityLevel" required>
@@ -62,12 +58,7 @@
               Please provide a valid priority level.
             </div>
           </div>
-
-          <div class="invalid-feedback">
-            Please select a valid UserId.
-          </div>
         </div>
-
         <div v-if="this.serverValidationMessagesGuardian">
           <ul>
             <li v-for="(message, index) in serverValidationMessagesGuardian" :key="index" style="color: red">

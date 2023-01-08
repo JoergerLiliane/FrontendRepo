@@ -17,8 +17,6 @@ async function updateExisting() {
   let body = document.querySelector("#guardian-view > div.row.row-cols-1.row-cols-md-4.g-4");
   if (body.childElementCount > 0){
     for (let i = 0; i < body.childElementCount; i++){
-      console.log("Flag")
-      //body.removeChild(document.querySelector(`#user-view > div.row.row-cols-1.row-cols-md-4.g-4 > div:nth-child(${i+1})`))
       document.querySelector(`#guardian-view > div.row.row-cols-1.row-cols-md-4.g-4 > div:nth-child(${i+1})`).innerHTML = "";
       console.log(document.querySelector(`#user-view > div.row.row-cols-1.row-cols-md-4.g-4 > div:nth-child(${i+1})`))
     }

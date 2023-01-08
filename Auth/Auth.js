@@ -2,10 +2,10 @@ const bcrypt = require("bcryptjs")
 const {store} = require("@/store");
 
 exports.register = async (req, res) => {
-    const { userName, passWord } = req.body;
+    const { userName, password } = req.body;
 
 
-    bcrypt.hash(passWord, 10).then(async (hash) => {
+    bcrypt.hash(password, 10).then(async (hash) => {
         await store.user.create({
             userName,
             password: hash,

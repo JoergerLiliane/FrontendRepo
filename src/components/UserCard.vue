@@ -5,32 +5,24 @@
     <div class="card-body">
       <h5 class="card-title"> <label>Firstname:</label> {{ user.firstName }}</h5>
       <h5><label>Lastname:</label> {{ user.lastName }}</h5>
-      <h5><label>Number:</label> {{user.phoneNumber}}</h5>
+      <h5><label>Username:</label> {{user.userName}}</h5>
       <h5><label>UserId:</label> {{user.id}}</h5>
 
       <button class="btn btn-success me-3" type="add" @click="addGuardian" id="addGuardian" href="/guardian">Add Guardians</button>
       <button class="btn btn-warning me-3" type="update" @click="editUser()" href="/userSettings">Edit</button>
-
-      <p id='txt'>Change your datas here</p>
-      {{user}}
-
-      <input type="text" id="name" placeholder="name">
-      <input type="text" id="marks" placeholder="marks">
-    </div>
-      <button onclick="submit()">Submit</button>
-    </div>
-
-    <div class="mt-5">
-
-
       <div v-if="user.guardianId > 0">
         <button class="btn btn-danger me-3" type="delete" @click="deleteGuardian(user.guardianId)" id="deleteGuardian" href="/delete-user">Delete Guardians</button>
       </div>
       <div v-if="user.guardianId.length === 0">
         <button class="btn btn-danger me-3" type="delete" @click="deleteUser(user.id)" id="deleteUser" href="/delete-user">Delete</button>
       </div>
-      <div id="results">
-      </div>
+    </div>
+
+    </div>
+
+    <div class="mt-5">
+
+
     </div>
 </template>
 
@@ -43,11 +35,6 @@
 
 
 
-//document.getElementById('btn-primary').removeEventListener('delete', (e) => {
-
- // e.preventDefault();
-
-  // delete user using fetch
 
 
 
@@ -78,7 +65,13 @@ export default {
         return require('../assets/male.png')
       } else if (user.gender === 'FEMALE') {
         return require('../assets/female.png')
+      }else if (user.gender === 'DIVERSE') {
+        return require('../assets/diverse.png')
+      }else if (user.gender === 'UNKNOWN') {
+        return require('../assets/unknown.png')
       }
+
+
     },
 
 
@@ -112,13 +105,14 @@ export default {
 
      await fetch(endpoint, requestOptions)
           .catch((error) => console.log('error', error));
+      router.push("/deletedUser")
           this.reload()
     },
 
 
      editUser(){
       store.user = this.user
-     router.push("/UserSettings")
+     router.push("/userSettings")
     },
 
 
@@ -126,6 +120,9 @@ export default {
       store.user = this.user
       router.push("/guardian")
     },
+
+
+
   }
 
 

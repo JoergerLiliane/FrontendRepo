@@ -29,12 +29,13 @@
       <form   class="text-start needs-validation" id="users-create-form" novalidate >
         <button type="button" id="close-offcanvas" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         <label for="chk" aria-hidden="true">Sign up</label>
-        <input type="text" name="txt" placeholder="firstName" v-model="firstName" required><div class="invalid-feedback">
+        <input type="text" name="txt" placeholder="firstName" v-model="firstName" required>
+        <div class="invalid-feedback">
         Please provide the firstname.
       </div>
         <input type="text" name="txt" placeholder="lastName" v-model="lastName" required>
         <div class="invalid-feedback">
-          Please provide the firstname.
+          Please provide the lastname.
         </div>
         <select id="gender" class="form" v-model="gender" required>
           <option value="">Select Gender</option>
@@ -42,7 +43,7 @@
           <option value="MALE">Male</option>
           <option value="FEMALE">Female</option>
           <option value="DIVERSE">Diverse</option>
-          <option value="Unkown">Unknown</option>
+          <option value="UNKNOWN">Unknown</option>
         </select>
         <div class="invalid-feedback">
           Please select a valid gender.
@@ -77,11 +78,9 @@
           <button type="submit" @click.prevent="registerUser">Registration</button>
           <button class="btn btn-danger" type="reset">Reset</button>
         </div>
-
       </form>
     </div>
 
-    <div></div>
 
     <div class="login" id="login">
       <form>

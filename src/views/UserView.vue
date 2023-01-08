@@ -2,7 +2,7 @@
   <h1>User</h1>
   <div class="container-fluid" id="user-view" >
     <user-card-list :key="store.usercardReload"></user-card-list>
-    <UserSignupForm></UserSignupForm>
+
 
 
 
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import UserSignupForm from "@/components/LogoutButton";
+
 import UserCardList from "@/components/UserCardList";
 import {store} from "@/store";
 
@@ -20,7 +20,7 @@ export default {
   name: 'UserView',
   components: {
     UserCardList,
-    UserSignupForm,
+
 
 
   },

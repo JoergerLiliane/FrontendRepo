@@ -28,6 +28,6 @@ describe('Testing UserView.vue', () => {
 
         //Expected
         const registrationForm = wrapper.findComponent(RegistrationUserView)
-        expect(registrationForm.exists()).toBeFalsy
+        expect(registrationForm.exists()).toBeFalsy()
     })
 })

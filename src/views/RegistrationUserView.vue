@@ -10,7 +10,7 @@
   <div class="LoginUser" id="registration">
     <h1>Registration</h1>
   </div>
-  <UserSignupForm></UserSignupForm>
+
 
 
   <!DOCTYPE html>

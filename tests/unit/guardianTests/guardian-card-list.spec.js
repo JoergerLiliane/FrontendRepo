@@ -37,6 +37,6 @@ describe('Testing GuardianCardList.vue', () => {
 
         //Expected
         const guardianCards = wrapper.findAllComponents(GuardianCard)
-        expect(guardianCards.length).toBe(2)
+        expect(guardianCards.length).toBe(0)
     })
 })

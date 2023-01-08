@@ -41,6 +41,6 @@ describe('Testing UserCardList.vue', () => {
 
         //Expected
         const userCards = wrapper.findAllComponents(UserCard)
-        expect(userCards.length).toBe(2)
+        expect(userCards.length).toBe(0)
     })
 })

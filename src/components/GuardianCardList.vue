@@ -43,7 +43,7 @@ export default {
       await updateExisting().then( async function (){
             const a = []
             store.guardianarray = a
-            console.log(store.guardianarray)
+
             const endpoint = 'http://localhost:8080/api/v1/guardian'
             const requestOptions = {
               method: 'GET',
@@ -52,8 +52,8 @@ export default {
             fetch(endpoint, requestOptions).then(response => response.json()).then(result => result.forEach(guardian => {
               store.guardianarray.push(guardian)
             })).catch(error => console.log('error', error))
-            console.log("Flag2")
-            console.log(store.guardianarray)
+
+
           }
       )
 
